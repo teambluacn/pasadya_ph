@@ -2,10 +2,19 @@
     <div class="landing">
         <div class="content-wrapper">
              <img src="../assets/pasadya_ph_logo_white.png" width="80%" alt="" srcset="" style="margin: 0 10%;">
+
+             <div class="desc container">
+                <h5>SMART CITIES</h5>
+                <p>How can we use data and technology to create efficiencies, economic development and enhance quality of life.</p>
+            </div>
+
             <ul style="list-style:none;text-align: center" class="nav-menu">
                 <li><router-link to="/index" class="ghost-button">HI-END CONSUMERS</router-link></li>
                 <li><router-link to="/retail" class="ghost-button">RETAILER</router-link></li>
             </ul>
+            
+            
+            
         </div>
        
     </div>
@@ -26,7 +35,13 @@
 .nav-menu {
   margin: 20% 0;
 }
-
+.desc {
+    text-align: center;
+    color: #fff;
+    width: 500px;
+    /* font-weight: bold; */
+    margin-top:20px;
+}
 .ghost-button {
   font-size: 25px;
   display: inline-block;

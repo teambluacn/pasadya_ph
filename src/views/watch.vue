@@ -125,21 +125,21 @@
       <div class="row">
         <div class="col-md-6">
           <h6>Name</h6>
-          <input type="text" v-model="name" name="" id="" class="form-control">
+          <input type="text" v-model="name" name="" id="" class="form-control" readonly>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
           <h6>Address</h6>
-           <input type="text" v-model="address" name="" id="" class="form-control">
+           <input type="text" v-model="address" name="" id="" class="form-control" readonly>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6">
           <h6>Contact No.</h6>
-          <input type="text" v-model="contact" name="" id="" class="form-control">
+          <input type="text" v-model="contact" name="" id="" class="form-control" readonly>
         </div>
       </div>
 
@@ -203,9 +203,9 @@ export default {
       goldFrame: false,
       silverFrame: false,
       total: '00.00',
-      name: '',
-      address: '',
-      contact: '',
+      name: 'Joel Eya',
+      address: 'Paraiso, Quezon City',
+      contact: '63917867513',
       quantity: '',
       material: '',
       sliderValue: 7000
@@ -221,26 +221,28 @@ export default {
   },
   methods: {
     okSubmit() {
-      axios.post("https://ws.durusthr.com/ILM_WS_Dev/AddConsumerDetails", {
-        consumerID: '1',
-        consumerName: this.name,
-        address: this.address,
-        contactno: this.contact,
-        PriceMin: '0',
-        PriceMax: this.sliderValue
-      }).then(response => {
-        console.log(response.data)
-      }).then(response => {
-        axios.post("https://ws.durusthr.com/ILM_WS_Dev/AddOrderDetails", {
-          consumerID: '1',
-          itemType: 'watch',
-          itemMaterials: this.strap,
-          iteamDesign: this.quantity
-        })
-      }).then(response => {
-        nexmo.message.sendSms(from, to, text);
+      nexmo.message.sendSms(from, to, text);
         this.$toasted.show('Successfully submitted for bidding.', {duration: '5000', type: 'success'})
-      })
+      // axios.post("https://ws.durusthr.com/ILM_WS_Dev/AddConsumerDetails", {
+      //   consumerID: '1',
+      //   consumerName: this.name,
+      //   address: this.address,
+      //   contactno: this.contact,
+      //   PriceMin: '0',
+      //   PriceMax: this.sliderValue
+      // }).then(response => {
+      //   console.log(response.data)
+      // }).then(response => {
+      //   axios.post("https://ws.durusthr.com/ILM_WS_Dev/AddOrderDetails", {
+      //     consumerID: '1',
+      //     itemType: 'watch',
+      //     itemMaterials: this.strap,
+      //     iteamDesign: this.quantity
+      //   })
+      // }).then(response => {
+      //   nexmo.message.sendSms(from, to, text);
+      //   this.$toasted.show('Successfully submitted for bidding.', {duration: '5000', type: 'success'})
+      // })
     },
     GenPrice(s){
       if(s ==='leather'){
